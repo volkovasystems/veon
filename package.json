@@ -1,0 +1,38 @@
+{
+  "name": "veon",
+  "version": "0.0.0",
+  "description": "Cross platform command execution helper set with NODE_ENV.",
+  "main": "veon.js",
+  "bin": {
+    "veon": "run.js"
+  },
+  "scripts": {
+    "test": "mocha veon-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkovasystems/veon.git"
+  },
+  "keywords": [
+    "cross-platform",
+    "command",
+    "execution",
+    "helper",
+    "node",
+    "environment",
+    "veon"
+  ],
+  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/volkovasystems/veon/issues"
+  },
+  "homepage": "https://github.com/volkovasystems/veon#readme",
+  "dependencies": {
+    "pedon": "^0.1.0",
+    "yargs": "^6.5.0"
+  },
+  "option": {
+    "shell": "veon"
+  }
+}
