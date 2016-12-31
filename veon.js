@@ -64,7 +64,7 @@ const veon = function veon( mode, command ){
 
 	command = command.replace( /^["'`]|["'`]$/g, "" );
 
-	return child.execSync( `${ modeCommand } && ${ command };`,
+	return child.execSync( `${ modeCommand } && ${ command }`,
 		{ "cwd": process.cwd( ), "stdio": [ 0, 1, 2 ] } );
 };
 
