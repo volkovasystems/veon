@@ -64,8 +64,10 @@ const veon = function veon( mode, command ){
 
 	command = command.replace( /^["'`]|["'`]$/g, "" );
 
+	process.env.NODE_ENV = mode;
+
 	return child.execSync( `${ modeCommand } && ${ command }`,
-		{ "cwd": process.cwd( ), "stdio": [ 0, 1, 2 ] } );
+		{ "cwd": process.cwd( ), "stdio": [ 0, 1, 2 ], "env": process.env } );
 };
 
 module.exports = veon;

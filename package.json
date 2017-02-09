@@ -1,6 +1,6 @@
 {
   "name": "veon",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cross platform command execution helper set with NODE_ENV.",
   "main": "veon.js",
   "bin": {
@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/volkovasystems/veon#readme",
   "dependencies": {
-    "pedon": "^0.1.0",
-    "yargs": "^6.5.0"
+    "pedon": "^0.5.0",
+    "yargs": "^6.6.0"
   },
   "option": {
     "shell": "veon"

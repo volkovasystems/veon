@@ -29,20 +29,20 @@
 
 	@run-module-configuration:
 		{
-			"package": "psylon",
-			"path": "psylon/run.js",
+			"package": "veon",
+			"path": "veon/run.js",
 			"file": "run.js",
 			"author": "Richeve S. Bebedor",
 			"eMail": "richeve.bebedor@gmail.com",
-			"repository": "https://github.com/volkovasystems/psylon.git",
-			"shell": "psylon",
-			"command": "flatten",
+			"repository": "https://github.com/volkovasystems/veon.git",
+			"shell": "veon",
+			"command": "set",
 			"parameter": [ "script" ]
 		}
 	@end-run-module-configuration
 
 	@run-module-documentation:
-		Run module for the psylon module.
+		Run module for the veon module.
 	@end-run-module-documentation
 
 	@include:
