@@ -48,26 +48,64 @@
 	@include:
 		{
 			"child": "child_process",
-			"pedon": "pedon"
+			"depher": "depher",
+			"falzy": "falzy",
+			"kein": "kein",
+			"pedon": "pedon",
+			"protype": "protype",
+			"wichevr": "wichevr"
 		}
 	@end-include
 */
 
 const child = require( "child_process" );
+const depher = require( "depher" );
+const falzy = require( "falzy" );
+const kein = require( "kein" );
 const pedon = require( "pedon" );
+const protype = require( "protype" );
+const wichevr = require( "wichevr" );
 
-const veon = function veon( mode, command ){
+const DEFAULT_RUNTIME_MODE = process.env.DEFAULT_RUNTIME_MODE || "local";
+
+const veon = function veon( mode, command, option ){
+	/*;
+		@meta-configuration:
+			{
+				"mode:required": "string",
+				"command:required": "string",
+				"option": "object"
+			}
+		@end-meta-configuration
+	*/
+
+	if( falzy( command ) || !protype( command, STRING ) ){
+		throw new Error( "invalid command" );
+	}
+
+	command = command.replace( /^["'`]|["'`]$/g, "" );
+
+	mode = wichevr( mode, DEFAULT_RUNTIME_MODE );
+
+	process.env.NODE_ENV = mode;
+
+	option = depher( arguments, OBJECT, { "cwd": process.cwd( ), "env": process.env } );
+
+	if( !kein( "cwd", option ) ){
+		option.cwd = process.cwd( );
+	}
+
+	if( !kein( "env", option ) ){
+		option.env = process.env;
+	}
+
 	let modeCommand = `export NODE_ENV=${ mode }`;
 	if( pedon.WINDOWS ){
 		modeCommand = `set NODE_ENV=${ mode }`;
 	}
 
-	command = command.replace( /^["'`]|["'`]$/g, "" );
-
-	process.env.NODE_ENV = mode;
-
-	return child.execSync( `${ modeCommand } && ${ command }`,
-		{ "cwd": process.cwd( ), "stdio": [ 0, 1, 2 ], "env": process.env } );
+	return wichevr( child.execSync( `${ modeCommand } && ${ command }`, option ), "" )
+		.toString( ).replace( /\s+/gm, "" );
 };
 
 module.exports = veon;

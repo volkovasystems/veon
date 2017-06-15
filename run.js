@@ -86,4 +86,4 @@ const parameter = yargs
 
 	.argv;
 
-veon( parameter.mode, parameter.command );
+veon( parameter.mode, parameter.command, { "stdio": [ 0, 1, 2 ] } );
